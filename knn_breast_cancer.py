@@ -36,3 +36,15 @@ classe = pd.Categorical.from_codes(breast_cancer.target, breast_cancer.target_na
 classe = pd.get_dummies(classe, drop_first=True)
 
 #%%
+previsores_treino, previsores_teste, classe_treino, classe_teste = train_test_split(previsores, classe,test_size=0.15, random_state=1)
+
+#%%
+knn = KNeighborsClassifier(n_neighbors=5, metric='euclidean')
+
+#%%
+knn.fit(previsores_treino, classe_treino)
+
+previsao = knn.predict(previsores_teste)
+
+#%%
+
