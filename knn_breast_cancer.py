@@ -47,4 +47,10 @@ knn.fit(previsores_treino, classe_treino)
 previsao = knn.predict(previsores_teste)
 
 #%%
+sns.scatterplot(x = 'mean area', y = 'mean compactness', hue = 'benign', data = previsores_teste.join(classe_teste, how = 'outer'))
+
+#%%
+plt.scatter(previsores_teste['mean area'], previsores_teste['mean compactness'], c=previsao, cmap='coolwarm', alpha=0.7)
+
+#%%
 
