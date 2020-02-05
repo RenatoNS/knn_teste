@@ -53,4 +53,9 @@ sns.scatterplot(x = 'mean area', y = 'mean compactness', hue = 'benign', data = 
 plt.scatter(previsores_teste['mean area'], previsores_teste['mean compactness'], c=previsao, cmap='coolwarm', alpha=0.7)
 
 #%%
+confusion_matrix(classe_teste, previsao)
+
+precisao = accuracy_score(classe_teste, previsao)
+
+baseline = baseline_calc(classe)
 
