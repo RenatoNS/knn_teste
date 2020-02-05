@@ -25,3 +25,14 @@ def baseline_calc(classe):
     return baseline
 
 #%%
+breast_cancer = load_breast_cancer()
+
+base = pd.DataFrame(breast_cancer.data, columns = breast_cancer.feature_names)
+
+previsores = base[['mean area', 'mean compactness']]
+
+classe = pd.Categorical.from_codes(breast_cancer.target, breast_cancer.target_names)
+
+classe = pd.get_dummies(classe, drop_first=True)
+
+#%%
