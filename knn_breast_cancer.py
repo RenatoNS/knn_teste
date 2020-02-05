@@ -18,3 +18,10 @@ sns.set()
 from collections import Counter
 
 #%%
+def baseline_calc(classe):
+    b1 = Counter(classe.iloc[:, 0])
+    mx = max(b1)
+    baseline = b1[mx] / sum(b1.values())
+    return baseline
+
+#%%
